@@ -19,13 +19,13 @@ public class BubbleSort implements Ordenador {
         for (int i = 0; i < tamanho; i++) {
             boolean houveTroca = false;
             for (int j = 0; j < tamanho - i - 1; j++) {
-                medidas.interacoes++; // comparação entre elementos adjacentes
+                medidas.interacoes++;
                 if (vetor[j] > vetor[j + 1]) {
                     trocar(vetor, j, j + 1, medidas);
                     houveTroca = true;
                 }
             }
-            if (!houveTroca) break; // já está ordenado
+            if (!houveTroca) break;
         }
         return medidas;
     }

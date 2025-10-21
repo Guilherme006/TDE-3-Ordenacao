@@ -23,7 +23,7 @@ public class Main {
             File pasta = new File("tabelas");
             if (!pasta.exists()) pasta.mkdirs();
             File arquivo = new File(pasta, "saida_java.txt");
-            escritor = new PrintWriter(new FileWriter(arquivo, false)); // false = sobrescreve
+            escritor = new PrintWriter(new FileWriter(arquivo, false));
         } catch (IOException e) {
             System.out.println("Aviso: não foi possível abrir o arquivo de saída. Será impresso só no console.");
         }

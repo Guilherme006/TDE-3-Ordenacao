@@ -22,7 +22,7 @@ public class CocktailSort implements Ordenador {
         while (houveTroca) {
             houveTroca = false;
             for (int i = inicio; i < fim; i++) {
-                medidas.interacoes++; // comparação esquerda → direita
+                medidas.interacoes++;
                 if (vetor[i] > vetor[i + 1]) {
                     trocar(vetor, i, i + 1, medidas);
                     houveTroca = true;
@@ -34,7 +34,7 @@ public class CocktailSort implements Ordenador {
             fim--;
 
             for (int i = fim - 1; i >= inicio; i--) {
-                medidas.interacoes++; // comparação direita → esquerda
+                medidas.interacoes++;
                 if (vetor[i] > vetor[i + 1]) {
                     trocar(vetor, i, i + 1, medidas);
                     houveTroca = true;

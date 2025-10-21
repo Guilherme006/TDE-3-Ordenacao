@@ -19,7 +19,7 @@ public class SelectionSort implements Ordenador {
         for (int i = 0; i < tamanho; i++) {
             int indiceMinimo = i;
             for (int j = i + 1; j < tamanho; j++) {
-                medidas.interacoes++; // comparação para achar o menor
+                medidas.interacoes++;
                 if (vetor[j] < vetor[indiceMinimo]) {
                     indiceMinimo = j;
                 }
