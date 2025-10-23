@@ -70,3 +70,62 @@ int[] vetor1 = {12, 18, 9, 25, 17, 31, 22, 27, 16, 13, 19, 23, 20, 30, 14, 11, 1
 int[] vetor2 = {5, 7, 9, 10, 12, 14, 15, 17, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32};
 int[] vetor3 = {99, 85, 73, 60, 50, 40, 35, 30, 25, 20, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6};
 ```
+
+## Resultados Obtidos
+A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resultados consolidados:
+
+### Vetor 1 (desordenado)
+
+| Algoritmo      | Trocas | Interações |
+|:---------------:|:------:|:-----------:|
+| Bubble Sort    | 78     | 180        |
+| Selection Sort | 18     | 190        |
+| Cocktail Sort  | 78     | 154        |
+
+> **Melhor resultado:** Selection Sort (menos trocas, custo de interação aceitável).
+
+### Veto 2 (ordenado)
+
+|    Algoritmo   | Trocas | Interações |
+| :------------: | :----: | :--------: |
+|   Bubble Sort  |    0   |     19     |
+| Selection Sort |    0   |     190    |
+|  Cocktail Sort |    0   |     19     |
+
+> **Melhor resultado:** Bubble Sort e Cocktail Sort empataram — nenhum precisou trocar elementos, apenas realizaram comparações mínimas.
+
+### Vetor 3 (decrescente)
+
+| Algoritmo      | Trocas | Interações |
+| -------------- | ------ | ---------- |
+| Bubble Sort    | 190    | 190        |
+| Selection Sort | 10     | 190        |
+| Cocktail Sort  | 190    | 190        |
+
+> **Melhor resultado:** Selection Sort — fez apenas 10 trocas, contra 190 dos demais.
+
+## Análise dos Resultados
+
+### Bubble Sort
+- Simples, mas ineficiente em vetores grandes ou desordenados.
+- Quando o vetor já está ordenado, se destaca pela quantidade reduzida de iterações.
+
+### Selection Sort
+- Consistente: sempre faz o mesmo número de comparações, mas com poucas trocas.
+- Melhor desempenho geral nos vetores desordenado e decrescente.
+
+### Cocktail Sort
+- Pouco mais otimizado que o Bubble Sort em alguns cenários.
+- Igualou o desempenho do Bubble Sort no vetor já ordenado.
+
+## Conclusão Geral
+
+| Vetor   | Melhor Algoritmo  | Justificativa                    |
+| ------- | ----------------- | -------------------------------- |
+| Vetor 1 | Selection Sort    | Menor número de trocas (18)      |
+| Vetor 2 | Bubble / Cocktail | Nenhuma troca e menos interações |
+| Vetor 3 | Selection Sort    | Muito menos trocas (10)          |
+
+> **Conclusão final:** O Selection Sort apresentou o melhor desempenho médio entre os três algoritmos, com destaque para a baixa quantidade de trocas mesmo que tenha mantido o mesmo número de interações nos três casos.
+
+
