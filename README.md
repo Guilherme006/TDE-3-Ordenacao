@@ -84,7 +84,7 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 
 > **Melhor resultado:** Selection Sort (menos trocas, custo de interação aceitável).
 
-### Veto 2 (ordenado)
+### Vetor 2 (ordenado)
 
 |    Algoritmo   | Trocas | Interações |
 | :------------: | :----: | :--------: |
@@ -92,7 +92,7 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Selection Sort |    0   |     190    |
 |  Cocktail Sort |    0   |     19     |
 
-> **Melhor resultado:** Bubble Sort e Cocktail Sort empataram — nenhum precisou trocar elementos, apenas realizaram comparações mínimas.
+> **Melhor resultado:** Bubble Sort e Cocktail Sort empataram, pois nenhum precisou trocar elementos (apenas realizaram comparações mínimas).
 
 ### Vetor 3 (decrescente)
 
@@ -102,7 +102,7 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Selection Sort | 10     | 190        |
 | Cocktail Sort  | 190    | 190        |
 
-> **Melhor resultado:** Selection Sort — fez apenas 10 trocas, contra 190 dos demais.
+> **Melhor resultado:** Selection Sort, pois fez apenas 10 trocas (contra 190 dos demais).
 
 ## Análise dos Resultados
 
@@ -127,5 +127,11 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Vetor 3 | Selection Sort    | Muito menos trocas (10)          |
 
 > **Conclusão final:** O Selection Sort apresentou o melhor desempenho médio entre os três algoritmos, com destaque para a baixa quantidade de trocas mesmo que tenha mantido o mesmo número de interações nos três casos.
+
+## Desenvolvido por
+**Guilherme Felippe Lazari**
+**Curso:** Ciência da Computação – PUCPR
+**Disciplina:** Resolução de Problemas Estruturados em Computação
+**Professor:** Andrey Cabral Meira
 
 
