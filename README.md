@@ -130,8 +130,11 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 
 ## Desenvolvido por
 **Guilherme Felippe Lazari**
+
 **Curso:** Ciência da Computação – PUCPR
+
 **Disciplina:** Resolução de Problemas Estruturados em Computação
+
 **Professor:** Andrey Cabral Meira
 
 
