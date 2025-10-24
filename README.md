@@ -91,7 +91,7 @@ int[] vetor3 = {99, 85, 73, 60, 50, 40, 35, 30, 25, 20, 15, 14, 13, 12, 11, 10, 
 ```
 
 ## Resultados Obtidos
-A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resultados consolidados:
+A execução do código gerou os seguintes resultados consolidados:
 
 ### Vetor 1 (desordenado)
 
@@ -154,6 +154,21 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 - Pouco mais otimizado que o Bubble Sort em alguns cenários.
 - Igualou o desempenho do Bubble Sort no vetor já ordenado.
 
+### Comb Sort
+- Evolução direta do Bubble Sort, comparando elementos separados por uma distância variável (gap).
+- Reduz significativamente o número de interações desnecessárias e acelera a ordenação.
+- Excelente desempenho médio, próximo a O(n log n), tornando-se mais eficiente que Bubble e Cocktail Sort.
+
+### Gnome Sort
+- Simples e intuitivo, mas menos eficiente para grandes conjuntos de dados.
+- Baseia-se em trocas adjacentes e retrocede sempre que encontra um elemento fora de ordem.
+- Útil como algoritmo didático, mas com desempenho inferior em cenários reais.
+
+### Bucket Sort
+-  Baseado em contagem de frequência, não utiliza comparações diretas entre elementos.
+-  Ideal para conjuntos de dados com intervalo pequeno e distribuído uniformemente.
+-  Apresenta desempenho muito superior aos algoritmos de comparação tradicionais, com complexidade próxima de O(n + k).
+  
 ## Conclusão Geral
 
 | Vetor   | Melhor Algoritmo                   | Justificativa                                   |
