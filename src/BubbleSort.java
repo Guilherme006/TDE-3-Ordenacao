@@ -1,31 +1,22 @@
-public class BubbleSort implements Ordenador {
-
-    private void trocar(int[] vetor, int i, int j, Medidas medidas) {
-        int temporario = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = temporario;
-        medidas.trocas++;
-    }
-
-    @Override
-    public String obterNome() {
-        return "Bubble Sort";
-    }
-
-    @Override
-    public Medidas ordenar(int[] vetor) {
+public class BubbleSort {
+    public static Medidas ordenar(int[] vetor, int tamanho) {
         Medidas medidas = new Medidas();
-        int tamanho = vetor.length;
-        for (int i = 0; i < tamanho; i++) {
+        int i = 0;
+        while (i < tamanho) {
             boolean houveTroca = false;
-            for (int j = 0; j < tamanho - i - 1; j++) {
-                medidas.interacoes++;
+            int j = 0;
+            while (j < (tamanho - i - 1)) {
+                medidas.interacoes = medidas.interacoes + 1;
                 if (vetor[j] > vetor[j + 1]) {
-                    trocar(vetor, j, j + 1, medidas);
+                    Util.trocar(vetor, j, j + 1, medidas);
                     houveTroca = true;
                 }
+                j = j + 1;
             }
-            if (!houveTroca) break;
+            if (!houveTroca) {
+                break;
+            }
+            i = i + 1;
         }
         return medidas;
     }

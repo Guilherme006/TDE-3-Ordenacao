@@ -1,46 +1,37 @@
-public class CocktailSort implements Ordenador {
-
-    private void trocar(int[] vetor, int i, int j, Medidas medidas) {
-        int temporario = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = temporario;
-        medidas.trocas++;
-    }
-
-    @Override
-    public String obterNome() {
-        return "Cocktail Sort";
-    }
-
-    @Override
-    public Medidas ordenar(int[] vetor) {
+public class CocktailSort {
+    public static Medidas ordenar(int[] vetor, int tamanho) {
         Medidas medidas = new Medidas();
         int inicio = 0;
-        int fim = vetor.length - 1;
+        int fim = tamanho - 1;
         boolean houveTroca = true;
 
         while (houveTroca) {
             houveTroca = false;
-            for (int i = inicio; i < fim; i++) {
-                medidas.interacoes++;
+            int i = inicio;
+            while (i < fim) {
+                medidas.interacoes = medidas.interacoes + 1;
                 if (vetor[i] > vetor[i + 1]) {
-                    trocar(vetor, i, i + 1, medidas);
+                    Util.trocar(vetor, i, i + 1, medidas);
                     houveTroca = true;
                 }
+                i = i + 1;
             }
-            if (!houveTroca) break;
-
+            if (!houveTroca) {
+                break;
+            }
             houveTroca = false;
-            fim--;
+            fim = fim - 1;
 
-            for (int i = fim - 1; i >= inicio; i--) {
-                medidas.interacoes++;
+            i = fim - 1;
+            while (i >= inicio) {
+                medidas.interacoes = medidas.interacoes + 1;
                 if (vetor[i] > vetor[i + 1]) {
-                    trocar(vetor, i, i + 1, medidas);
+                    Util.trocar(vetor, i, i + 1, medidas);
                     houveTroca = true;
                 }
+                i = i - 1;
             }
-            inicio++;
+            inicio = inicio + 1;
         }
         return medidas;
     }

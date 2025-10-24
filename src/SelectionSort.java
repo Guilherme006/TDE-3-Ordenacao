@@ -1,32 +1,21 @@
-public class SelectionSort implements Ordenador {
-
-    private void trocar(int[] vetor, int i, int j, Medidas medidas) {
-        int temporario = vetor[i];
-        vetor[i] = vetor[j];
-        vetor[j] = temporario;
-        medidas.trocas++;
-    }
-
-    @Override
-    public String obterNome() {
-        return "Selection Sort";
-    }
-
-    @Override
-    public Medidas ordenar(int[] vetor) {
+public class SelectionSort {
+    public static Medidas ordenar(int[] vetor, int tamanho) {
         Medidas medidas = new Medidas();
-        int tamanho = vetor.length;
-        for (int i = 0; i < tamanho; i++) {
+        int i = 0;
+        while (i < tamanho) {
             int indiceMinimo = i;
-            for (int j = i + 1; j < tamanho; j++) {
-                medidas.interacoes++;
+            int j = i + 1;
+            while (j < tamanho) {
+                medidas.interacoes = medidas.interacoes + 1;
                 if (vetor[j] < vetor[indiceMinimo]) {
                     indiceMinimo = j;
                 }
+                j = j + 1;
             }
             if (indiceMinimo != i) {
-                trocar(vetor, i, indiceMinimo, medidas);
+                Util.trocar(vetor, i, indiceMinimo, medidas);
             }
+            i = i + 1;
         }
         return medidas;
     }
