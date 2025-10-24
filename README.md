@@ -65,21 +65,16 @@ Versão adaptada baseada em contagem de frequência (Counting Sort). Conta quant
 - **Complexidade:** O(n + k), onde k é o intervalo de valores.
 - **Destaque:** extremamente rápido quando os números estão em um intervalo pequeno.
 
-### 4. Classe `FerramentasOrdenacao`
-Contém métodos utilitários para:
-- Copiar vetores antes da ordenação (garantindo independência entre execuções);
-- Imprimir resultados no console e no arquivo de saída (`tabelas/saida_java.txt`).
-
-### 5. Classe `Util`
+### 4. Classe `Util`
 Contém métodos auxiliares que são utilizados por todos os algoritmos.
 - `copiarVetor(int[] origem, int[] destino, int tamanho)` → copia manualmente os elementos de um vetor para outro.
 - `imprimirVetor(int[] vetor, int tamanho)` → imprime o conteúdo do vetor no console, formatado.
 - `imprimirVetor(int[] vetor, int tamanho)` → imprime o conteúdo do vetor no console, formatado.
 
-### 6. Classe `Execucao`
+### 5. Classe `Execucao`
 Responsável por executar os algoritmos de ordenação e exibir os resultados no console. Garante que cada algoritmo receba uma cópia independente do vetor original, evitando interferências entre execuções.
 
-### 7. Classe `Main`
+### 6. Classe `Main`
 Coordena a execução do programa:
 1. Cria os três vetores de teste.  
 2. Executa os três algoritmos sobre cada vetor.  
