@@ -1,6 +1,6 @@
 # Análise Comparativa de Algoritmos de Ordenação em Java
 
-Este projeto implementa três algoritmos clássicos de ordenação em **Java** — *Bubble Sort*, *Selection Sort* e *Cocktail Sort* — e realiza uma comparação entre eles com base em dois critérios principais:
+Este projeto implementa e compara seis algoritmos clássicos de ordenação em Java, medindo o desempenho com base em:
 
 - **Número de trocas**
 - **Número de interações (comparações realizadas)**
@@ -50,12 +50,36 @@ Variação bidirecional do Bubble Sort, que percorre o vetor em ambos os sentido
 - Complexidade: **O(n²)**  
 - Desempenho semelhante ao Bubble Sort, mas ligeiramente mais eficiente em casos quase ordenados.
 
+### `CombSort`
+Otimização do Bubble Sort que compara elementos separados por uma distância (gap). O gap diminui a cada iteração, acelerando o processo em vetores grandes.
+- **Complexidade:** O(n²), média próxima a O(n log n).
+- **Destaque:** excelente desempenho médio, sendo mais rápido que Bubble e Cocktail.
+
+### `GnomeSort`
+Semelhante ao Insertion Sort, mas troca elementos adjacentes e “volta” sempre que há um elemento fora de ordem.
+- **Complexidade:** O(n²).
+- **Destaque:** implementação simples, boa didaticamente, mas menos eficiente.
+
+### `BucketSort`
+Versão adaptada baseada em contagem de frequência (Counting Sort). Conta quantas vezes cada número aparece e reescreve o vetor em ordem crescente.
+- **Complexidade:** O(n + k), onde k é o intervalo de valores.
+- **Destaque:** extremamente rápido quando os números estão em um intervalo pequeno.
+
 ### 4. Classe `FerramentasOrdenacao`
 Contém métodos utilitários para:
 - Copiar vetores antes da ordenação (garantindo independência entre execuções);
 - Imprimir resultados no console e no arquivo de saída (`tabelas/saida_java.txt`).
 
-### 5. Classe `Main`
+### 5. Classe `Util`
+Contém métodos auxiliares que são utilizados por todos os algoritmos.
+- `copiarVetor(int[] origem, int[] destino, int tamanho)` → copia manualmente os elementos de um vetor para outro.
+- `imprimirVetor(int[] vetor, int tamanho)` → imprime o conteúdo do vetor no console, formatado.
+- `imprimirVetor(int[] vetor, int tamanho)` → imprime o conteúdo do vetor no console, formatado.
+
+### 6. Classe `Execucao`
+Responsável por executar os algoritmos de ordenação e exibir os resultados no console. Garante que cada algoritmo receba uma cópia independente do vetor original, evitando interferências entre execuções.
+
+### 7. Classe `Main`
 Coordena a execução do programa:
 1. Cria os três vetores de teste.  
 2. Executa os três algoritmos sobre cada vetor.  
@@ -77,22 +101,31 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 ### Vetor 1 (desordenado)
 
 | Algoritmo      | Trocas | Interações |
-|:---------------:|:------:|:-----------:|
+| -------------- | ------ | ---------- |
 | Bubble Sort    | 78     | 180        |
 | Selection Sort | 18     | 190        |
 | Cocktail Sort  | 78     | 154        |
+| Comb Sort      | 22     | 129        |
+| Gnome Sort     | 78     | 175        |
+| Bucket Sort    | 20     | 38         |
 
-> **Melhor resultado:** Selection Sort (menos trocas, custo de interação aceitável).
+> 🥇 **Melhor resultado:** Bucket Sort (menor número total de operações, pois não compara elementos).
+> 🥈 Comb Sort teve o melhor desempenho entre os algoritmos de comparação tradicionais.
+> 🥉 Selection Sort ficou logo atrás, com pouquíssimas trocas.### Vetor 2 (ordenado)
 
-### Vetor 2 (ordenado)
+### Vetor 2 (crescende)
 
-|    Algoritmo   | Trocas | Interações |
-| :------------: | :----: | :--------: |
-|   Bubble Sort  |    0   |     19     |
-| Selection Sort |    0   |     190    |
-|  Cocktail Sort |    0   |     19     |
+| Algoritmo      | Trocas | Interações |
+| -------------- | ------ | ---------- |
+| Bubble Sort    | 0      | 19         |
+| Selection Sort | 0      | 190        |
+| Cocktail Sort  | 0      | 19         |
+| Comb Sort      | 0      | 110        |
+| Gnome Sort     | 0      | 19         |
+| Bucket Sort    | 20     | 38         |
 
-> **Melhor resultado:** Bubble Sort e Cocktail Sort empataram, pois nenhum precisou trocar elementos (apenas realizaram comparações mínimas).
+> 🥇 **Melhor resultado:** Bubble Sort, Cocktail Sort e Gnome Sort empataram (sem trocas e pouquíssimas interações).
+> 🥈 Comb Sort manteve boa eficiência.Bucket Sort fez trocas por reescrita, mas sem comparações significativas.
 
 ### Vetor 3 (decrescente)
 
@@ -101,8 +134,12 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Bubble Sort    | 190    | 190        |
 | Selection Sort | 10     | 190        |
 | Cocktail Sort  | 190    | 190        |
+| Comb Sort      | 18     | 129        |
+| Gnome Sort     | 190    | 399        |
+| Bucket Sort    | 20     | 38         |
 
-> **Melhor resultado:** Selection Sort, pois fez apenas 10 trocas (contra 190 dos demais).
+> 🥇 **Melhor resultado:** Selection Sort (apenas 10 trocas no pior caso).
+> 🥈 Comb Sort teve desempenho competitivo, com menos interações. Bucket Sort manteve eficiência estável por não depender da ordem inicial.
 
 ## Análise dos Resultados
 
@@ -120,13 +157,17 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 
 ## Conclusão Geral
 
-| Vetor   | Melhor Algoritmo  | Justificativa                    |
-| ------- | ----------------- | -------------------------------- |
-| Vetor 1 | Selection Sort    | Menor número de trocas (18)      |
-| Vetor 2 | Bubble / Cocktail | Nenhuma troca e menos interações |
-| Vetor 3 | Selection Sort    | Muito menos trocas (10)          |
+| Vetor   | Melhor Algoritmo                   | Justificativa                                   |
+| ------- | ---------------------------------- | ----------------------------------------------- |
+| Vetor 1 | **Bucket Sort** / Comb Sort        | Não depende da ordem e realiza menos operações. |
+| Vetor 2 | **Bubble / Cocktail / Gnome Sort** | Nenhuma troca e poucas interações.              |
+| Vetor 3 | **Selection Sort**                 | Pouquíssimas trocas no pior caso.               |
 
-> **Conclusão final:** O Selection Sort apresentou o melhor desempenho médio entre os três algoritmos, com destaque para a baixa quantidade de trocas mesmo que tenha mantido o mesmo número de interações nos três casos.
+
+> **Conclusão final:**
+> O Selection Sort foi o mais consistente entre os algoritmos de comparação.
+> O Comb Sort apresentou excelente eficiência média.
+> O Bucket Sort foi o mais rápido em geral, por não realizar comparações diretas.
 
 ## Desenvolvido por
 **Guilherme Felippe Lazari**
