@@ -37,30 +37,30 @@ Cada uma implementa a interface `Ordenador`:
 
 #### `BubbleSort`
 Percorre o vetor diversas vezes, trocando elementos adjacentes fora de ordem.  
-- Complexidade: **O(n²)**  
-- Otimização: nenhuma (versão simples).
+- **Complexidade:** **O(n²)**  
+- **Otimização:** nenhuma (versão simples).
 
 #### `SelectionSort`
 Seleciona o menor elemento e o coloca na posição correta a cada iteração.  
-- Complexidade: **O(n²)**  
+- **Complexidade:** **O(n²)**  
 - Menor número de trocas em relação ao Bubble Sort.
 
 #### `CocktailSort`
 Variação bidirecional do Bubble Sort, que percorre o vetor em ambos os sentidos.  
-- Complexidade: **O(n²)**  
+- **Complexidade:** **O(n²)**  
 - Desempenho semelhante ao Bubble Sort, mas ligeiramente mais eficiente em casos quase ordenados.
 
-### `CombSort`
+#### `CombSort`
 Otimização do Bubble Sort que compara elementos separados por uma distância (gap). O gap diminui a cada iteração, acelerando o processo em vetores grandes.
 - **Complexidade:** O(n²), média próxima a O(n log n).
 - **Destaque:** excelente desempenho médio, sendo mais rápido que Bubble e Cocktail.
 
-### `GnomeSort`
+#### `GnomeSort`
 Semelhante ao Insertion Sort, mas troca elementos adjacentes e “volta” sempre que há um elemento fora de ordem.
 - **Complexidade:** O(n²).
 - **Destaque:** implementação simples, boa didaticamente, mas menos eficiente.
 
-### `BucketSort`
+#### `BucketSort`
 Versão adaptada baseada em contagem de frequência (Counting Sort). Conta quantas vezes cada número aparece e reescreve o vetor em ordem crescente.
 - **Complexidade:** O(n + k), onde k é o intervalo de valores.
 - **Destaque:** extremamente rápido quando os números estão em um intervalo pequeno.
@@ -110,7 +110,9 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Bucket Sort    | 20     | 38         |
 
 > 🥇 **Melhor resultado:** Bucket Sort (menor número total de operações, pois não compara elementos).
+> 
 > 🥈 Comb Sort teve o melhor desempenho entre os algoritmos de comparação tradicionais.
+> 
 > 🥉 Selection Sort ficou logo atrás, com pouquíssimas trocas.### Vetor 2 (ordenado)
 
 ### Vetor 2 (crescende)
@@ -125,6 +127,7 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Bucket Sort    | 20     | 38         |
 
 > 🥇 **Melhor resultado:** Bubble Sort, Cocktail Sort e Gnome Sort empataram (sem trocas e pouquíssimas interações).
+> 
 > 🥈 Comb Sort manteve boa eficiência.Bucket Sort fez trocas por reescrita, mas sem comparações significativas.
 
 ### Vetor 3 (decrescente)
@@ -139,6 +142,7 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 | Bucket Sort    | 20     | 38         |
 
 > 🥇 **Melhor resultado:** Selection Sort (apenas 10 trocas no pior caso).
+> 
 > 🥈 Comb Sort teve desempenho competitivo, com menos interações. Bucket Sort manteve eficiência estável por não depender da ordem inicial.
 
 ## Análise dos Resultados
@@ -165,8 +169,11 @@ A execução do código gerou o arquivo `saida_java.txt`, com os seguintes resul
 
 
 > **Conclusão final:**
+> 
 > O Selection Sort foi o mais consistente entre os algoritmos de comparação.
+> 
 > O Comb Sort apresentou excelente eficiência média.
+> 
 > O Bucket Sort foi o mais rápido em geral, por não realizar comparações diretas.
 
 ## Desenvolvido por
