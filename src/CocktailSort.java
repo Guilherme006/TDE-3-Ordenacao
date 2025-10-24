@@ -33,6 +33,37 @@ public class CocktailSort {
             }
             inicio = inicio + 1;
         }
+
+        int intervalo = maximo - minimo + 1;
+        if (intervalo < 1) intervalo = 1;
+
+        int[] frequencia = new int[intervalo];
+        i = 0;
+        while (i < intervalo) {
+            frequencia[i] = 0;
+            i = i + 1;
+        }
+
+        i = 0;
+        while (i < tamanho) {
+            int indice = vetor[i] - minimo;
+            frequencia[indice] = frequencia[indice] + 1;
+            i = i + 1;
+        }
+
+        int k = 0;
+        int valor = 0;
+        while (valor < intervalo) {
+            int cont = frequencia[valor];
+            while (cont > 0) {
+                vetor[k] = valor + minimo;
+                medidas.trocas = medidas.trocas + 1;
+                k = k + 1;
+                cont = cont - 1;
+            }
+            valor = valor + 1;
+        }
+
         return medidas;
     }
 }
