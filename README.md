@@ -108,7 +108,7 @@ A execução do código gerou os seguintes resultados consolidados:
 > 
 > 🥈 Comb Sort teve o melhor desempenho entre os algoritmos de comparação tradicionais.
 > 
-> 🥉 Selection Sort ficou logo atrás, com pouquíssimas trocas.### Vetor 2 (ordenado)
+> 🥉 Selection Sort ficou logo atrás, com pouquíssimas trocas.
 
 ### Vetor 2 (crescende)
 
